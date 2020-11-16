@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="./css/top_seibai.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>逆境無頼カイジ[イカサマ班長大槻成敗編！]</title>
+</head>
+
+
+
+<body>
+
+    <div class="nextPage">
+        <audio id="overSound" preload="auto">
+            <source src="./voice/playstart.wav" type="audio/wav">
+        </audio>
+
+        <input id="appButton" type="button" onclick="location.href='./janken_explain.html'" value="地下に落ちる"
+            style="position: absolute; right: 75px; bottom: 75px" />
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+
+            //音を鳴らす
+            $('#appButton').mouseover(function () {
+
+                document.getElementById("overSound").currentTime = 0;
+                document.getElementById("overSound").play();
+
+            });
+
+
+        });
+    </script>
+
+</body>
+
+</html>

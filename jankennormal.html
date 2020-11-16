@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="sample.css">
+    <title>ジャンケン</title>
+</head>
+
+<body>
+    <header>
+        <h1>ジャンケン</h1>
+    </header>
+
+    <main>
+        <ul>
+            <li id="gu_btn">グー</li>
+            <li id="cho_btn">チョキ</li>
+            <li id="par_btn">パー</li>
+        </ul>
+        <div id="com_hand">コンピュータの出した手は？</div>
+        <div id="judgement">結果は？</div>
+    </main>
+
+    <footer>フッター</footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script> //この↓、$って画面上の操作を指すものにしか描かないと思ってた。。
+        $(function () {
+            const result = ['グー', 'チョキ', 'パー'];
+
+            $('#gu_btn').on('click', function () {
+
+                let rand = Math.floor(Math.random() * 3);
+
+
+                $('#com_hand').text('大槻の手:' + result[rand]);
+                if (rand == 0) {
+                    $('#judgement').text('アイコ');
+                } else if (rand == 1) {
+                    $('#judgement').text('勝ち');
+                } else {
+                    S('#judgement').text('負け');  //ここから〜
+                }
+            });
+
+
+            $('#cho_btn').on('click', function () {
+                let rand = Math.floor(Math.random() * 3);
+
+                $('#com_hand').text('大槻の手:' + result[rand]);
+                if (rand == 0) {
+                    $('#judgement').text('負け');
+                } else if (rand == 1) {
+                    $('#judgement').text('アイコ');
+                } else {
+                    $('#judgement').text('勝ち');
+                }
+
+            });
+
+            $('#par_btn').on('click', function () {
+
+                let rand = Math.floor(Math.random() * 3);
+
+                $('#com_hand').text('大槻の手:' + result[rand]);
+                if (rand == 0) {
+                    $('#judgement').text('勝ち');
+                } else if (rand == 1) {
+                    $('#judgement').text('負け');
+                } else {
+                    $('#judgement').text('アイコ');
+                }
+
+            });
+
+        });
+    </script>
+
+
+
+</body>
+
+
+</html>

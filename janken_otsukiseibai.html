@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/sample_otsukiseibai.css">
+    <title>逆境無頼カイジ破戒録~班長大槻成敗編~</title>
+</head>
+
+<body>
+    <header>
+        <h1>班長大槻を成敗せよ！</h1>
+    </header>
+
+    <main>
+        <ul>
+            <li id="gu_btn"><img src="./kaiji_image2/gu-.jpg" alt="グー" width="30%" height="30%"></li>
+            <li id="cho_btn"><img src="./kaiji_image2/choki.png" alt="チョキ" width="30%" height="30%"></li>
+            <li id="par_btn"><img src="./kaiji_image2/pa-.jpg" alt="パー" width="30%" height="30%"></li>
+        </ul>
+        <div class="kekka">すこあ</div>
+        <div id="kaiji_score">カイジ：0ペリカ</div>
+        <div id="otsuki_score">大槻：2000ペリカ</div>
+        <div id="com_hand">コンピュータの出した手は？</div>
+        <div id="judgement">結果は？</div>
+
+    </main>
+
+    <footer>フッター</footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script> //この↓、$って画面上の操作を指すものにしか描かないと思ってた。。
+        $(function () {
+            const result = ['グー', 'チョキ', 'パー'];
+            let perika_kaiji = 0;
+            let perika_otsuki = 2000;
+            let kaiji_lose = 0;
+
+            $('#gu_btn').on('click', function () {
+
+                let rand = Math.floor(Math.random() * 3);
+
+
+                $('#com_hand').text('大槻の手:' + result[rand]);
+                if (rand == 0) {
+                    $('#judgement').text('アイコ');
+                } else if (rand == 1) {
+                    $('#judgement').text('勝ち');
+                    perika_kaiji += 400;
+                    perika_otsuki -= 400;
+                    $('#kaiji_score').text('カイジ:' + perika_kaiji + 'ペリカ');
+                    $('#otsuki_score').text('大槻:' + perika_otsuki + 'ペリカ');
+                    if (perika_kaiji == 2000) {
+                        window.location.href = 'kaiji_win.html';
+                    }
+                } else {
+                    S('#judgement').text('負け');
+                    perika_kaiji -= 400;
+                    perika_otsuki += 400;
+                    kaiji_lose += 1;
+                    $('#kaiji_score').text('カイジ:' + perika_kaiji + 'ペリカ');
+                    $('#otsuki_score').text('大槻:' + perika_otsuki + 'ペリカ');
+                    if (kaiji_lose == 5) {
+                        window.location.href = 'kaiji_lose.html';
+                    }
+                };
+            });
+
+
+            $('#cho_btn').on('click', function () {
+                let rand = Math.floor(Math.random() * 3);
+
+                $('#com_hand').text('大槻の手:' + result[rand]);
+                if (rand == 0) {
+                    $('#judgement').text('負け');
+                    perika_kaiji -= 400;
+                    perika_otsuki += 400;
+                    kaiji_lose += 1;
+                    $('#kaiji_score').text('カイジ:' + perika_kaiji + 'ペリカ');
+                    $('#otsuki_score').text('大槻:' + perika_otsuki + 'ペリカ');
+                    if (kaiji_lose == 5) {
+                        window.location.href = 'kaiji_lose.html';
+                    }
+                } else if (rand == 1) {
+                    $('#judgement').text('アイコ');
+                } else {
+                    $('#judgement').text('勝ち');
+                    perika_kaiji += 400;
+                    perika_otsuki -= 400;
+                    $('#kaiji_score').text('カイジ:' + perika_kaiji + 'ペリカ');
+                    $('#otsuki_score').text('大槻:' + perika_otsuki + 'ペリカ');
+                    if (perika_kaiji == 2000) {
+                        window.location.href = 'kaiji_win.html';
+                    }
+                }
+
+            });
+
+            $('#par_btn').on('click', function () {
+
+                let rand = Math.floor(Math.random() * 3);
+
+                $('#com_hand').text('大槻の手:' + result[rand]);
+                if (rand == 0) {
+                    $('#judgement').text('勝ち');
+                    perika_kaiji += 400;
+                    perika_otsuki -= 400;
+                    $('#kaiji_score').text('カイジ:' + perika_kaiji + 'ペリカ');
+                    $('#otsuki_score').text('大槻:' + perika_otsuki + 'ペリカ');
+                    if (perika_kaiji == 2000) {
+                        window.location.href = 'kaiji_win.html';
+                    }
+                } else if (rand == 1) {
+                    $('#judgement').text('負け');
+                    perika_kaiji -= 400;
+                    perika_otsuki += 400;
+                    kaiji_lose += 1;
+                    $('#kaiji_score').text('カイジ:' + perika_kaiji + 'ペリカ');
+                    $('#otsuki_score').text('大槻:' + perika_otsuki + 'ペリカ');
+                    if (kaiji_lose == 5) {
+                        window.location.href = 'kaiji_lose.html';
+                    }
+                } else {
+                    $('#judgement').text('アイコ');
+                }
+
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

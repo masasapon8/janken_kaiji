@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>quizアプリ02</title>
+  <style>
+    .header,
+    .footer {
+      width: 100%;
+      background: navy;
+      color: whitesmoke;
+      border: 1px solod #000;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    main {
+      font-size: 24px;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    form ul {
+      list-style: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <h1>クイズアプリ02（複数）</h1>
+  </header>
+  <main>
+    <p id="count">第1問</p>
+    <p id="question"></p>
+    <form action="">
+      <ul>
+        <li>
+          <input type="radio" name="choices" id="choice00" value="0">
+          <label id="choice00_label" for="choice00"></label>
+        </li>
+        <li>
+          <input type="radio" name="choices" id="choice01" value="1">
+          <label id="choice01_label" for="choice01"></label>
+        </li>
+        <li>
+          <input type="radio" name="choices" id="choice02" value="2">
+          <label id="choice02_label" for="choice02"></label>
+        </li>
+      </ul>
+    </form>
+  </main>
+  <footer class="footer">
+    <h1 id="result">結果は？</h1>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+
+    $(function () {
+
+      // 問題の定義
+      const questions = [
+        'コードを書くときに最も重要な要素は？？',
+        '課題をつくるときに大事なことは？？',
+        'コードを書くのがしんどくなったときはどうする？？'
+      ];
+      // 選択肢の定義
+      const choices = [
+        ['効率', '経済力', '時間'],
+        ['面白いアイデア', 'かける時間', '洗練されたコード'],
+        ['さらにコードを書く', '寝る', '飲み会に行く']
+      ];
+      // 正解の定義
+      const collectAnswer = [2, 1, 0];
+      // カウント用変数
+      let count = 0;
+
+      // 最初の問題と選択肢を表示
+
+
+      // クリック時に正誤判定&次の問題の内容を表示
+
+
+    });
+  </script>
+</body>
+
+</html>

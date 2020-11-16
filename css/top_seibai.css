@@ -1,0 +1,6 @@
+body{
+    background-image: url(../kaiji_image2/kaiji_top.jpg);
+    background-size: cover;
+    font-size: large;
+    /* 画像を繰り返したくない場合は no repeat で指定する */
+}
